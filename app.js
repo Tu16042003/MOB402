@@ -36,7 +36,7 @@ app.use(session({
 }));
 
 //setup mongoose
-mongoose.connect('mongodb://127.0.0.1:27017/MOB402', {
+mongoose.connect('mongodb+srv://tupqps24388:123@cluster0.psnw2er.mongodb.net/MOB402?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
