@@ -10,9 +10,9 @@ router.get('/',async (req,res,next)=>{
 
     try {
         const product = await productController.getAllProducts();
-        res.status(200).json({product});
+        res.status(200).json({status: true ,product});
     } catch (error) {
-        res.status(400).json({});
+        res.status(400).json({status: false, error: error});
     }
 
 });
