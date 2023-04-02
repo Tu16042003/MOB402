@@ -10,6 +10,7 @@ router.post('/login', async (req, res, next) => {
         const { email, password } = req.body;
 
         const user = await useController.login(email, password);
+        console.log(user);
         if (user) {
 
             // tạo token
