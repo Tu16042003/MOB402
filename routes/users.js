@@ -36,7 +36,7 @@ router.post('/login', async function (req, res, next) {
   if (result) {
     const token = jwt.sign({_id:result._id},'secret');
     req.session.token = token;
-    return res.redirect('/users')
+    return res.redirect('/')
   } else {
     return res.redirect('/login')
   }
