@@ -19,6 +19,7 @@ router.get('/login', function (req, res, next) {
   res.render('user/login');
 
 });
+
 //logout
 router.get('/logout', function (req, res, next) {
   req.session.destroy();
