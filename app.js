@@ -47,7 +47,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/MOB402', {
 // http://localhost:3000/
 
 //  http://localhost:3000/users/
-app.use('/users', usersRouter);
+app.use('/', usersRouter);
 
 app.use('/api/user', userapiRouter);
 app.use('/api/product', productapiRouter);
