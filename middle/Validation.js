@@ -28,6 +28,9 @@ const checkRegister = async (req, res, next) => {
                 });
             }
             // chay tiep
+
+
+            
             next();
         }
     } catch (error) {

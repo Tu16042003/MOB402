@@ -8,7 +8,7 @@ const authen = require('../middle/Authen');
 /* GET users listing. */
 router.get('/', function (req, res, next) {
   // trang chính
-res.render('product/index')
+  res.render('product/index')
 
 });
 
@@ -32,10 +32,9 @@ router.post('/login', async function (req, res, next) {
   // xử lý hđ login
   const { email, password } = req.body;
   const result = await userController.login(email, password);
-
-  
   if (result) {
-    const token = jwt.sign({_id:result._id},'secret');
+    const token = jwt.sign({ _id: result._id, role: result.role }, 'secret');
+
     req.session.token = token;
     return res.redirect('/')
   } else {

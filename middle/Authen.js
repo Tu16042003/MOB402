@@ -1,37 +1,42 @@
 
 const jwt = require('jsonwebtoken');
 
-const authenWeb = ()=>{
+const authenWeb = () => {
 
     const { session } = req;
     const url = req.originalUrl.toLowerCase();
     if (!session) {
         if (url.includes('login')) {
-            next();
+            return next();
         } else {
-            res.redirect('/login');
+            return res.redirect('/login');
         }
     } else {
         const { token } = session;
         if (!token) {
             if (url.includes('login')) {
-                next();
+                return next();
             } else {
-                res.redirect('/login');
+                return res.redirect('/login');
             }
         } else {
             jwt.verify(token, 'secret', function (error, decoded) {
                 if (error) {
                     if (url.includes('login')) {
-                        next();
+                        return next();
                     } else {
-                        res.redirect('/login');
+                        return res.redirect('/login');
                     }
                 } else {
                     if (url.includes('login')) {
-                        res.redirect('/');
+                        return res.redirect('/');
                     } else {
-                        next();
+                        // kiểm tra role
+                        const { role } = decoded;
+                        if (role < 100) {
+                            return res.redirect('/login');
+                        }
+                        return next();
                     }
                 }
             })
@@ -57,4 +62,4 @@ const authenApp = (req, res, next) => {
         return res.status(401).json({ status: false })
     }
 }
-module.exports = {authenWeb,authenApp};
+module.exports = { authenWeb, authenApp };
