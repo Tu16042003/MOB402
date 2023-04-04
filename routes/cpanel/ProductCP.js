@@ -40,9 +40,9 @@ router.post('/new', [multer.single('image'),], async (req, res, next) => {
             let image = `${Config.IP}/images/${file.filename}`;
             body = { ...body, image: image }
         }
-        let { name, price, quantity, image, category } = body;
+        let { name, price,content, quantity, image, category } = body;
 
-        await productController.addProduct(name, price, quantity, image, category);
+        await productController.addProduct(name, price,content, quantity, image, category);
         return res.redirect('/cpanel/product')
     } catch (error) {
 
@@ -77,9 +77,9 @@ router.post('/edit/:id/edit', [multer.single('image'),], async (req, res, next) 
             let image = `${Config.IP}/images/${file.filename}`;
             body = { ...body, image: image }
         }
-        let { name, price, quantity, image, category } = body;
-        console.log(id,name, price, quantity, image, category);
-        await productController.updateProduct(id,name, price, quantity, image, category);
+        let { name, price,content, quantity, image, category } = body;
+        console.log(id,name, price,content, quantity, image, category);
+        await productController.updateProduct(id,name, price,content, quantity, image, category);
         return res.redirect('/cpanel/product')
     } catch (error) {
 

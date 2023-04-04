@@ -20,16 +20,16 @@ const deleteProductByid = async (id) => {
 }
 
 
-const addProduct = async (name, price, quantity, image, category) => {
+const addProduct = async (name, price,content, quantity, image, category) => {
   try {
-    return await productSevice.addProduct(name, price, quantity, image, category);
+    return await productSevice.addProduct(name, price,content, quantity, image, category);
   } catch (error) {
     throw error;
   }
 }
-const updateProduct = async (id,name, price, quantity, image, category) => {
+const updateProduct = async (id,name, price,content, quantity, image, category) => {
   try {
-    return await productSevice.updateProduct(id,name, price, quantity, image, category);
+    return await productSevice.updateProduct(id,name, price,content, quantity, image, category);
   } catch (error) {
     throw error;
   }

@@ -32,8 +32,8 @@ router.get('/:id', async (req, res, next) => {
 router.post('/', async (req, res, next) => {
 
     try {
-        const { name, price, quantity, image, category } = req.body
-        await productController.addProduct(name, price, quantity, image, category);
+        const { name, price,content, quantity, image, category } = req.body
+        await productController.addProduct(name, price,content, quantity, image, category);
         return res.status(200).json({ result: true });
     } catch (error) {
         return res.status(400).json({ result: false });

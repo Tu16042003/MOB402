@@ -27,10 +27,10 @@ const deleteProductByid = async (id) => {
   return false;
 }
 // thêm mới
-const addProduct = async (name, price, quantity, image, category) => {
+const addProduct = async (name, price,content, quantity, image, category) => {
   try {
     const newProduct = {
-      name, price, quantity, image, category
+      name, price,content, quantity, image, category
     }
     // data.push(newProduct);
     await productModel.create(newProduct);
@@ -42,7 +42,7 @@ const addProduct = async (name, price, quantity, image, category) => {
   return false;
 }
 
-const updateProduct = async (id, name, price, quantity, image, category) => {
+const updateProduct = async (id, name, price,content, quantity, image, category) => {
   try {
 
 
@@ -55,6 +55,7 @@ const updateProduct = async (id, name, price, quantity, image, category) => {
       // console.log("cccccccccccccccccccccc:",id,name, price, quantity, image, category);
       item.name = name ? name : item.name;
       item.price = price ? price : item.price;
+      item.content = content? content:item.content;
       item.image = image ? image : item.image;
       item.category = category ? category : item.category;
       item.quantity = quantity ? quantity : item.quantity;

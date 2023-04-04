@@ -5,6 +5,7 @@ const schema = new Schema({
     id: { type: ObjectId }, // khóa chính
     name: {type: String},
     price:{type:Number},
+    content:{type:String},
     quantity:{type:Number},
     image:{type:String},
     category:{type:ObjectId,ref:'category'}//khoas ngoaij
