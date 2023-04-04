@@ -102,76 +102,19 @@ const search = async (keyword) => {
 }
 
 
-module.exports = { getAllProducts, deleteProductByid, addProduct, updateProduct, getProductbyid ,search};
 
-var data = [{
-  "_id": 1,
-  "name": "Crax sp.",
-  "price": 854,
-  "quantity": 1,
-  "image": "http://dummyimage.com/241x100.png/ff4444/ffffff",
-  "category": 3
-}, {
-  "_id": 2,
-  "name": "Dasypus septemcincus",
-  "price": 817,
-  "quantity": 2,
-  "image": "http://dummyimage.com/212x100.png/cc0000/ffffff",
-  "category": 5
-}, {
-  "_id": 3,
-  "name": "Halcyon smyrnesis",
-  "price": 706,
-  "quantity": 3,
-  "image": "http://dummyimage.com/164x100.png/dddddd/000000",
-  "category": 1
-}, {
-  "_id": 4,
-  "name": "Hippotragus equinus",
-  "price": 606,
-  "quantity": 4,
-  "image": "http://dummyimage.com/139x100.png/cc0000/ffffff",
-  "category": 10
-}, {
-  "_id": 5,
-  "name": "Meles meles",
-  "price": 398,
-  "quantity": 5,
-  "image": "http://dummyimage.com/122x100.png/dddddd/000000",
-  "category": 4
-}, {
-  "_id": 6,
-  "name": "Anas bahamensis",
-  "price": 626,
-  "quantity": 6,
-  "image": "http://dummyimage.com/153x100.png/ff4444/ffffff",
-  "category": 4
-}, {
-  "_id": 7,
-  "name": "Rhea americana",
-  "price": 559,
-  "quantity": 7,
-  "image": "http://dummyimage.com/249x100.png/5fa2dd/ffffff",
-  "category": 1
-}, {
-  "_id": 8,
-  "name": "Lutra canadensis",
-  "price": 966,
-  "quantity": 8,
-  "image": "http://dummyimage.com/162x100.png/cc0000/ffffff",
-  "category": 1
-}, {
-  "_id": 9,
-  "name": "Otocyon megalotis",
-  "price": 659,
-  "quantity": 9,
-  "image": "http://dummyimage.com/100x100.png/cc0000/ffffff",
-  "category": 7
-}, {
-  "_id": 10,
-  "name": "Sitta canadensis",
-  "price": 366,
-  "quantity": 10,
-  "image": "http://dummyimage.com/154x100.png/5fa2dd/ffffff",
-  "category": 6
-}]
+const getAllProducts2 = async (page, limit) => {
+  try {
+    let product =  await productModel.find(
+      {},'name price' // lấy name và price
+    ).sort({price:-1}) // sắp xếp tăng giảm
+    ;
+    return product;
+  } catch (error) {
+    throw error;
+  }
+  return [];
+}
+
+
+module.exports = { getAllProducts, deleteProductByid, addProduct, updateProduct, getProductbyid ,search,getAllProducts2};
