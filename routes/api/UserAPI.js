@@ -39,4 +39,15 @@ router.post('/register', [validation.checkRegister], async (req, res, next) => {
     }
 })
 
+router.post('/sendemail', async (req, res, next) => {
+    try {
+        const { email, subject, content } = req.query;
+        const result = await useController.sendMail(email,subject,content);
+
+    } catch (error) {
+        console.log(error);
+    }
+})
+
+
 module.exports = router;
