@@ -38,6 +38,7 @@ router.post('/new', [multer.single('image'),], async (req, res, next) => {
         let { body, file } = req;
         if (file) {
             let image = `${Config.IP}/images/${file.filename}`;
+            // let image = 'gs://tuabc-38208.appspot.com'
             body = { ...body, image: image }
         }
         let { name, price,content, quantity, image, category } = body;

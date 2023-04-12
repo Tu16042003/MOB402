@@ -3,7 +3,7 @@ const userSevice = require('./UserSevice');
 
 
 const nodemailer = require('nodemailer');
-const transporter = mailer.createTransport({
+const transporter = nodemailer.createTransport({
     pool: true,
     host: 'smtp.gmail.com',
     port: 465,
